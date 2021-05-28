@@ -1,0 +1,20 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "usuario",
+      "emailLogin": "konsist@konsist.com.br",
+      "linha": "1234",
+      "dataNascimento": "YYYY-MM-DD",
+      "endereco": "endereço"
+    },
+    {
+      "id": "2",
+      "nome": "usuario2",
+      "emailLogin": "emaillogin@email.com",
+      "linha": "senhacriptografada",
+      "dataNascimento": "YYYY-MM-DD",
+      "endereco": "endereço"
+    }
+  ]
+}
