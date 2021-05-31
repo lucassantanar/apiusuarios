@@ -14,7 +14,7 @@ app.use('/account', accounstRouter);
 
 var port = process.env.PORT || 3000;
 
-app.listen(port, async () => {
+app.listen(3000, async () => {
   try {
     await readFile(global.fileName);
     console.log('Server em execução!');

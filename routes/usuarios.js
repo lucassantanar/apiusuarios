@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 router.get('/usuarios', async (req, res) => {
   try {
     const data = JSON.parse(await readFile(global.fileName));
-    if (req.body.token == 'konsist') {
+    if (req.headers.token == 'konsist') {
       res.send(data);
     } else {
       res.send({ erro: 'É necessário informar o Token!' });
@@ -36,7 +36,7 @@ router.get('/usuarios', async (req, res) => {
   }
 });
 
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   let usuario = '';
   res.header('Access-Control-Allow-Origin', '*');
   try {
