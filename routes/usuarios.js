@@ -40,33 +40,32 @@ router.get('/login', async (req, res) => {
   let usuario = '';
   res.header('Access-Control-Allow-Origin', '*');
   try {
-    res.send({ mensagem: 'API FUNCIONANDO' });
-    // const data = JSON.parse(await readFile(global.fileName));
+    const data = JSON.parse(await readFile(global.fileName));
 
-    // const result = data.usuarios.map((usuario) => {
-    //   return usuario;
-    // });
+    const result = data.usuarios.map((usuario) => {
+      return usuario;
+    });
 
-    // const email = result.map((email) => {
-    //   return email.emailLogin;
-    // });
-    // const senha = result.map((senha) => {
-    //   return senha.linha;
-    // });
+    const email = result.map((email) => {
+      return email.emailLogin;
+    });
+    const senha = result.map((senha) => {
+      return senha.linha;
+    });
 
-    // if (
-    //   email.indexOf(req.body.email) > -1 &&
-    //   senha.indexOf(req.body.senha) > -1
-    // ) {
-    //   result.map((dadosUsuario) => {
-    //     if (dadosUsuario.emailLogin == req.body.email) {
-    //       usuario = dadosUsuario;
-    //     }
-    //   });
-    //   res.send({ token: 'konsist', ...usuario });
-    // } else {
-    //   res.send({ erro: 'Usuário ou senha inválido!' });
-    // }
+    if (
+      email.indexOf(req.body.email) > -1 &&
+      senha.indexOf(req.body.senha) > -1
+    ) {
+      result.map((dadosUsuario) => {
+        if (dadosUsuario.emailLogin == req.body.email) {
+          usuario = dadosUsuario;
+        }
+      });
+      res.send({ token: 'konsist', ...usuario });
+    } else {
+      res.send({ erro: 'Usuário ou senha inválido!' });
+    }
   } catch (err) {
     res.status(400).send({ error: err.message });
   }
