@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
 router.get('/usuarios', async (req, res) => {
   try {
     const data = JSON.parse(await readFile(global.fileName));
-    if (req.headers.token == 'konsist') {
+    if (req.headers.authorization == 'konsist') {
       res.send(data);
     } else {
       res.send({ erro: 'É necessário informar o Token!' });
