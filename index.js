@@ -12,7 +12,9 @@ app.use(cors());
 
 app.use('/account', accounstRouter);
 
-app.listen(3333, async () => {
+var port = process.env.PORT || 3000;
+
+app.listen(port, async () => {
   try {
     await readFile(global.fileName);
     console.log('Server em execução!');
