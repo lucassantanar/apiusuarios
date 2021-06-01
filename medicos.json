@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "nome": "Medico 1",
+    "conselho": "Conselho 1"
+  },
+  {
+    "id": "2",
+    "nome": "Medico 2",
+    "conselho": "Conselho 2"
+  },
+  {
+    "id": "3",
+    "nome": "Medico 3",
+    "conselho": "Conselho 3"
+  },
+  {
+    "id": "4",
+    "nome": "Medico 4",
+    "conselho": "Conselho 4"
+  }
+]

@@ -5,23 +5,6 @@ const { readFile, writeFile } = fs;
 
 const router = express.Router();
 
-// Este endpoint cadastra a grade.
-router.post('/', async (req, res) => {
-  try {
-    let account = req.body;
-    const data = JSON.parse(await readFile(global.fileName));
-
-    account = { id: data.nextId++, ...account, timestamp: new Date() };
-    data.grades.push(account);
-
-    await writeFile(global.fileName, JSON.stringify(data));
-
-    res.send(account);
-  } catch (err) {
-    res.status(400).send({ error: err.message });
-  }
-});
-
 //este endpoint lista todos as grades.
 router.get('/usuarios', async (req, res) => {
   try {
@@ -70,6 +53,56 @@ router.post('/login', async (req, res) => {
     res.status(400).send({ error: err.message });
   }
 });
+
+router.get('/medicos', async (req, res) => {
+  try {
+    const data = JSON.parse(await readFile('medicos.json'));
+    if (req.headers.authorization == 'konsist') {
+      res.send(data);
+    } else {
+      res.send({ erro: 'É necessário informar o Token!' });
+    }
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Este endpoint cadastra a grade.
+router.post('/', async (req, res) => {
+  try {
+    let account = req.body;
+    const data = JSON.parse(await readFile(global.fileName));
+
+    account = { id: data.nextId++, ...account, timestamp: new Date() };
+    data.grades.push(account);
+
+    await writeFile(global.fileName, JSON.stringify(data));
+
+    res.send(account);
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
 
 // este endpoint lista as grades por id passado como parametro
 router.get('/:id', async (req, res) => {
