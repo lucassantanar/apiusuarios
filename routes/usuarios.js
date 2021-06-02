@@ -19,6 +19,24 @@ router.get('/usuarios', async (req, res) => {
   }
 });
 
+router.post('/usuarios', async (req, res) => {
+  try {
+    let user = req.body;
+    const data = JSON.parse(await readFile(global.fileName));
+    if (req.headers.authorization == 'konsist') {
+      user = { id: data.NextId++, ...user }
+      data.usuarios.push(user);
+      await writeFile(global.fileName, JSON.stringify(data))
+      res.send(data);
+    } else {
+      res.send({ erro: 'É necessário informar o Token!' });
+    }
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
+
 router.post('/login', async (req, res) => {
   let usuario = '';
   res.header('Access-Control-Allow-Origin', '*');
