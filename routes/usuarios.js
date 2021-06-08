@@ -85,18 +85,22 @@ router.get('/medicos', async (req, res) => {
 
 router.put('/usuarios', async (req, res) => {
   try {
-    const account = req.body;
+    if (req.headers.authorization == 'konsist') {
+      const account = req.body;
 
-    const data = JSON.parse(await readFile(global.fileName));
-    const index = data.usuarios.findIndex((a) => a.id === account.id);
+      const data = JSON.parse(await readFile(global.fileName));
+      const index = data.usuarios.findIndex((a) => a.id === account.id);
 
-    if (index === -1) {
-      res.send({ error: 'Usuário não encontrado' });
+      if (index === -1) {
+        res.send({ error: 'Usuário não encontrado' });
+      } else {
+        data.usuarios[index] = account;
+
+        await writeFile(global.fileName, JSON.stringify(data));
+        res.send(account);
+      }
     } else {
-      data.usuarios[index] = account;
-
-      await writeFile(global.fileName, JSON.stringify(data));
-      res.send(account);
+      res.send({ erro: 'É necessário informar o Token!' });
     }
   } catch (err) {
     res.status(400).send({ error: err.message });
