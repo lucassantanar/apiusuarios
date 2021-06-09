@@ -26,7 +26,7 @@ router.post('/usuarios', async (req, res) => {
       user = { id: data.NextId++, ...user };
       data.usuarios.push(user);
       await writeFile(global.fileName, JSON.stringify(data));
-      res.send(data);
+      res.send(user);
     } else {
       res.send({ erro: 'É necessário informar o Token!' });
     }

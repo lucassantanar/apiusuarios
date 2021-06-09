@@ -1,1 +1,39 @@
-{"NextId":5,"usuarios":[{"id":"1","nome":"usuario","emailLogin":"konsist@konsist.com.br","linha":"1234","dataNascimento":"YYYY-MM-DD","endereco":"endereço","ativo":true},{"id":"2","nome":"usuario2","emailLogin":"emaillogin@email.com","linha":"senhacriptografada","dataNascimento":"YYYY-MM-DD","endereco":"endereço","ativo":true},{"id":3,"nome":"CARLOSSS","emailLogin":"carlos@gmail.com","dataNascimento":"1995-12-21","endereco":"endereço","ativo":true},{"id":4,"nome":"CARLOS","emailLogin":"carlos@gmail.com","dataNascimento":"1995-12-21","endereco":"endereço","ativo":true}]}
+{
+  "NextId": 5,
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "usuario",
+      "emailLogin": "konsist@konsist.com.br",
+      "linha": "1234",
+      "dataNascimento": "YYYY-MM-DD",
+      "endereco": "endereço",
+      "ativo": true
+    },
+    {
+      "id": "2",
+      "nome": "usuario2",
+      "emailLogin": "emaillogin@email.com",
+      "linha": "senhacriptografada",
+      "dataNascimento": "YYYY-MM-DD",
+      "endereco": "endereço",
+      "ativo": true
+    },
+    {
+      "id": 3,
+      "nome": "CARLOSSS",
+      "emailLogin": "carlos@gmail.com",
+      "dataNascimento": "1995-12-21",
+      "endereco": "endereço",
+      "ativo": true
+    },
+    {
+      "id": 4,
+      "nome": "CARLOS",
+      "emailLogin": "carlos@gmail.com",
+      "dataNascimento": "1995-12-21",
+      "endereco": "endereço",
+      "ativo": true
+    }
+  ]
+}
